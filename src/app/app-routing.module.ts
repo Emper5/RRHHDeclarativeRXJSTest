@@ -1,10 +1,20 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { MyRouteRoutes } from './my-route.routing';
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
 
+const routes: Routes = [
+  { path: '**', redirectTo: 'employees-overview' },
+  {
+    path: 'employees-overview',
+    loadChildren: () =>
+      import('./modules/employees/employees.module').then(
+        (m) => m.EmployeesModule
+      )
+  },
+  { path: '', redirectTo: '/employees-overview', pathMatch: 'full' }
+]
 
 @NgModule({
-  imports: [MyRouteRoutes],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

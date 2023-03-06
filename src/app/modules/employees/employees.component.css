@@ -1,0 +1,45 @@
+.content {
+    background-color: white;
+    flex: 1;
+    margin: 10px;
+}
+
+.card {
+    width: 250px;
+    margin: 8px;
+    padding: 11px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+mat-card-title-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info {
+    margin: 10px;
+}
+
+.fatherCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.paginator {
+    width: 100%!important;
+}
+
+.search {
+    padding: 10px
+}
