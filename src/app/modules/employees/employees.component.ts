@@ -9,7 +9,7 @@ import {
 import { FormControl } from '@angular/forms'
 import { MatDialog } from '@angular/material/dialog'
 import { MatPaginator } from '@angular/material/paginator'
-import { Observable, Subject, takeUntil } from 'rxjs'
+import { Observable, Subject, takeUntil, tap } from 'rxjs'
 import { Person } from 'src/app/interfaces/population.interface'
 import { PeopleServiceService } from './services/people-service.service'
 import { Country } from 'src/app/shared/utils/data.enum'
@@ -37,7 +37,10 @@ export class EmployeesComponent implements AfterViewInit, OnInit, OnDestroy {
 
   ngOnInit() {
     this.searchInput.valueChanges
-      .pipe(takeUntil(this.unsubscribe$))
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        tap(() => this.paginator.firstPage())
+      )
       .subscribe((searchInput) => {
         this.peopleService.searchInput(searchInput)
       })
