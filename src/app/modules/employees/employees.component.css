@@ -10,6 +10,12 @@
     padding: 11px;
 }
 
+.card:hover {
+    transform: scale(1.05);
+    transition: 200ms;
+    cursor: pointer;
+}
+
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -42,4 +48,23 @@ mat-card-title-group {
 
 .search {
     padding: 10px
+}
+
+@media only screen and (max-width: 650px) {
+    .card {
+        width: 90%;
+    }
+    .search mat-form-field {
+        width: 100%;
+    }
+}
+
+.dialog {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.image {
+    margin-left: 10px;
 }

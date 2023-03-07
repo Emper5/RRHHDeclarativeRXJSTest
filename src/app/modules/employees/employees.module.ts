@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common'
 import { EmployeesComponent } from './employees.component'
 import { EmployeesRoutingModule } from './employees-routing.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { MaterialModule } from '../shared/material.module'
-import { PeopleServiceService } from '../../services/people-service.service'
-import { HttpClient } from '@angular/common/http'
+import { PeopleServiceService } from './services/people-service.service'
+import { PeopleHttpClient } from './services/people-http.client'
+import { MaterialModule } from 'src/app/shared/material.module'
 
 @NgModule({
   imports: [
@@ -16,6 +16,6 @@ import { HttpClient } from '@angular/common/http'
     ReactiveFormsModule
   ],
   declarations: [EmployeesComponent],
-  providers: [PeopleServiceService, HttpClient]
+  providers: [PeopleHttpClient, PeopleServiceService]
 })
 export class EmployeesModule {}

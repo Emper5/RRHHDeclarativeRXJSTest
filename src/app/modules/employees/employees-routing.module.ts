@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { EmployeesComponent } from './employees.component';
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
+import { EmployeesComponent } from './employees.component'
 
 const routes: Routes = [
   {
@@ -8,13 +8,13 @@ const routes: Routes = [
     component: EmployeesComponent
   },
   {
-    path:'**',
+    path: '**',
     redirectTo: ''
   }
-];
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EmployeesRoutingModule { }
+export class EmployeesRoutingModule {}
