@@ -1,27 +1,27 @@
-# PruebaTecnica
+#Paint&Point Employee Management System
+Este proyecto es una solución Frontend desarrollada en Angular 14, utilizando RxJs, Angular Materials, Prettier y Eslint para gestionar a los empleados de la empresa de pintura Paint&Point S.L.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+##Caracteristicas del proyecto
+Proyecto con estructura clásica con header, body y footer.
+Un grid que muestre una tarjeta por cada usuario con su foto de avatar, nombre completo y teléfono.
+Al hacer clic en una tarjeta se abre una modal con el detalle del empleado, mostrando todos los datos y la fecha de nacimiento en formato "dd/mm/yyyy".
+Un buscador en el header que permita filtrar a los usuarios por cualquier dato.
+Una paginación que permita visualizar los usuarios de 5 en 5, pudiendo variar la cantidad a mostrar.
 
-## Development server
+##Se hace incapie en los siguientes aspectos:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Uso de Angular 14
+Código limpio, estructurado y entendible
+Consumo de datos utilizando HttpClient de Angular
+Diseño responsive
+Utilización de algún tipo de procesador de CSS como SASS
+Friendly UX/UI
+Optimización (tiempo de carga, recursos y renders)
+Uso de RXJS de manera declarativa, con especial atencian al uso de flujos combinados.
 
-## Code scaffolding
+##Instrucciones para arrancar el proyecto
+Para ejecutar el proyecto, sigue los siguientes pasos:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Clona el repositorio en tu máquina local.
+Instala las dependencias ejecutando el comando npm install.
+Inicia el servidor de desarrollo con ng serve y abre la aplicación en el navegador en la dirección http://localhost:4200.
