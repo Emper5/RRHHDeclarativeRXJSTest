@@ -25,3 +25,4 @@ Para ejecutar el proyecto, sigue los siguientes pasos:
 1. Clona el repositorio en tu máquina local.
 2. Instala las dependencias ejecutando el comando npm install.
 3. Inicia el servidor de desarrollo con ng serve y abre la aplicación en el navegador en la dirección http://localhost:4200.
+4. Para testear, correr el comando npm run test.
