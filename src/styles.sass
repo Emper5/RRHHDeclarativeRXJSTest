@@ -18,3 +18,61 @@ body
 body
   margin: 0
   font-family: Roboto, "Helvetica Neue", sans-serif
+
+.content
+  background-color: white
+  flex: 1
+  margin: 10px
+
+.card
+  width: 250px
+  margin: 8px
+  padding: 11px
+
+  &:hover
+    transform: scale(1.05)
+    transition: 200ms
+    cursor: pointer
+
+  &s
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    align-content: center
+
+mat-card-title-group
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.info
+  margin: 10px
+
+.fatherCard
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  align-content: center
+
+.paginator
+  width: 100%!important
+
+.search
+  padding: 10px
+
+@media only screen and (max-width: 650px)
+  .card
+    width: 90%
+
+    .search mat-form-field
+      width: 100%
+
+.dialog
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+
+.image
+  margin-left: 10px

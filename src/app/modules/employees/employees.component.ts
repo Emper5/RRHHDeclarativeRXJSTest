@@ -6,45 +6,33 @@ import {
   TemplateRef,
   OnDestroy
 } from '@angular/core'
-import { FormControl } from '@angular/forms'
 import { MatDialog } from '@angular/material/dialog'
 import { MatPaginator } from '@angular/material/paginator'
 import { Observable, Subject, takeUntil, tap } from 'rxjs'
 import { Person } from 'src/app/interfaces/population.interface'
-import { PeopleServiceService } from './services/people-service.service'
+import { PeopleService } from './services/people.service'
 import { Country } from 'src/app/shared/utils/data.enum'
+import { DialogService } from '../../shared/services/dialog.service'
 
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.css']
 })
-export class EmployeesComponent implements AfterViewInit, OnInit, OnDestroy {
+export class EmployeesComponent implements AfterViewInit, OnDestroy {
   @ViewChild('paginator') paginator!: MatPaginator
   @ViewChild('dialogRef') dialogRef!: TemplateRef<any>
 
   private unsubscribe$: Subject<boolean> = new Subject<boolean>()
 
-  searchInput: FormControl = new FormControl('')
   peopleSelected$: Observable<Person[]> = this.peopleService.filteredPeople$
   lengthFilteredPerson$: Observable<number> =
     this.peopleService.lengthFilteredPerson$
 
   constructor(
-    public dialog: MatDialog,
-    private peopleService: PeopleServiceService
+    public _dialogService: DialogService,
+    private peopleService: PeopleService
   ) {}
-
-  ngOnInit() {
-    this.searchInput.valueChanges
-      .pipe(
-        takeUntil(this.unsubscribe$),
-        tap(() => this.paginator.firstPage())
-      )
-      .subscribe((searchInput) => {
-        this.peopleService.searchInput(searchInput)
-      })
-  }
 
   ngAfterViewInit() {
     this.paginator.page.pipe(takeUntil(this.unsubscribe$)).subscribe((page) => {
@@ -58,24 +46,11 @@ export class EmployeesComponent implements AfterViewInit, OnInit, OnDestroy {
     this.unsubscribe$.unsubscribe()
   }
 
-  openDialog(
-    person: Person,
-    enterAnimationDuration: string,
-    exitAnimationDuration: string
-  ): void {
-    this.dialog.open(this.dialogRef, {
-      data: person,
-      width: '450px',
-      enterAnimationDuration,
-      exitAnimationDuration
-    })
+  firstPageEvent() {
+    this.paginator.firstPage()
   }
 
-  close() {
-    this.dialog.closeAll()
-  }
-
-  getCountry(countryId: number) {
-    return Country[countryId]
+  openDetailEmployee(person: Person) {
+    this._dialogService.openDetailEmployeeDialog(person)
   }
 }

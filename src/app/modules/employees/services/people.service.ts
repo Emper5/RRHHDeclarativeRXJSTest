@@ -15,7 +15,7 @@ import { filterPersonsBySearchKeyValue } from 'src/app/shared/utils/filter-searc
 import { PeopleHttpClient } from './people-http.client'
 
 @Injectable()
-export class PeopleServiceService {
+export class PeopleService {
   private searchInputSubject = new BehaviorSubject<string>('')
   searchInput$ = this.searchInputSubject.asObservable().pipe(
     debounceTime(300),
