@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>
+    {{ data.surname }} {{ data.surname2 }}, {{ data.name }}
+</h1>
+<div class="dialog">
+    <div class="information">
+        <div mat-dialog-content>
+            <p>Sex: {{ data.sex === 'H' ? 'Man' : 'Woman' }}</p>
+            <p>Phone number: {{ data.phone }}</p>
+            <p>Birthdate: {{ data.datebirthday | date : 'dd/MM/yyyy' }}</p>
+            <p>Country: {{ getCountry(data['country-id']) }}</p>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button mat-dialog-close (click)="close()">Close</button>
+        </div>
+    </div>
+    <div class="image">
+        <img src="../../../assets/img/unknow.png" width="100" height="100" />
+    </div>
+</div>
